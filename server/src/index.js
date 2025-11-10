@@ -13,15 +13,15 @@ app.use(express.json());
 app.use("/api", healthRoutes);
 
 app.get("/", (req, res) => {
-    res.send("GTA RP Fights Tournament API");
+  res.send("GTA RP Fights Tournament API");
 });
 
 async function start() {
-    await connectDB();
+  await connectDB();
 
-    app.listen(PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${PORT}`);
-    });
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+  });
 }
 
 start();
