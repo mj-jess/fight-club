@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import { Organization } from '../models/index.js';
 
 // GET /api/organizations
-export async function list(req, res) {
+export async function list(req: Request, res: Response) {
   try {
     const organizations = await Organization.find().sort({ created_at: -1 });
     return res.json(organizations);
@@ -12,7 +13,7 @@ export async function list(req, res) {
 }
 
 // POST /api/organizations
-export async function create(req, res) {
+export async function create(req: Request, res: Response) {
   try {
     const { name, category, notes } = req.body;
 
