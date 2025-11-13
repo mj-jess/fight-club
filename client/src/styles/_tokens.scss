@@ -1,4 +1,33 @@
-// TOKENS (mobile-first)
+//
+// 🎨 TECH DASHBOARD PRO — TOKEN SYSTEM
+// Estilo moderno, tech e corporativo (Google Cloud, Vercel, Linear)
+// Mobile-first + Theme Switching
+//
+
+/* ---------------- BREAKPOINTS ---------------- */
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+/* ---------------- SPACING / RADIUS ---------------- */
+$space: (
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 24px,
+    6: 32px,
+);
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 18px;
+
+/* ---------------- SHADOWS ---------------- */
+$shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.35);
+
+/* ---------------- FONT ---------------- */
 $font-family:
     'Inter',
     system-ui,
@@ -11,63 +40,52 @@ $font-family:
     Arial,
     sans-serif;
 
-// spacing
-$space-1: 4px;
-$space-2: 8px;
-$space-3: 12px;
-$space-4: 16px;
-$space-5: 24px;
-$space-6: 32px;
-
-// radius
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 18px;
-
-// shadow
-$shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.35);
-
-// colors (dark default)
-$bg: #05060a;
-$bg-soft: #0b0f18;
-$border: #252a3a;
-$text: #f9fafb;
-$text-soft: #9ca3af;
-$primary: #4f46e5;
-$primary-soft: rgba(79, 70, 229, 0.16);
-$success: #22c55e;
-$danger: #ef4444;
-
-// breakpoints (mobile → up)
-$bp-sm: 480px;
-$bp-md: 768px;
-$bp-lg: 1024px;
-$bp-xl: 1280px;
-
-// CSS vars (tema em runtime)
+/* ======================================================================
+   🌙 DARK THEME (default)
+   ====================================================================== */
 :root,
 [data-theme='dark'] {
-    --bg: #{$bg};
-    --bg-soft: #{$bg-soft};
-    --border: #{$border};
-    --text: #{$text};
-    --text-soft: #{$text-soft};
-    --primary: #{$primary};
-    --primary-soft: #{$primary-soft};
-    --success: #{$success};
-    --danger: #{$danger};
+    /* Backgrounds */
+    --bg-1: #0c0e12;
+    --bg-2: #12151b;
 
+    /* Border */
+    --border: #2a2f3a;
+
+    /* Text */
+    --text: #f3f5f7;
+    --text-soft: #a3acba;
+
+    /* Primary */
+    --primary: #3ba9ff;
+    --primary-soft: rgba(59, 169, 255, 0.15);
+
+    /* Radius */
     --radius-sm: #{$radius-sm};
     --radius-md: #{$radius-md};
     --radius-lg: #{$radius-lg};
 
-    --space-1: #{$space-1};
-    --space-2: #{$space-2};
-    --space-3: #{$space-3};
-    --space-4: #{$space-4};
-    --space-5: #{$space-5};
-    --space-6: #{$space-6};
+    /* Spacing */
+    @each $key, $val in $space {
+        --space-#{$key}: #{$val};
+    }
 
     --shadow-soft: #{$shadow-soft};
     --font-family: #{$font-family};
+}
+
+/* ======================================================================
+   ☀️ LIGHT THEME
+   ====================================================================== */
+[data-theme='light'] {
+    --bg-1: #f5f7fa;
+    --bg-2: #ffffff;
+
+    --border: #d9dee7;
+
+    --text: #1c1f23;
+    --text-soft: #6c737f;
+
+    --primary: #007bce;
+    --primary-soft: rgba(0, 123, 206, 0.12);
 }

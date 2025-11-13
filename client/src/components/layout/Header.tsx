@@ -1,4 +1,5 @@
-import { FaBars, FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
+import { useTheme } from '@/hooks';
+import { FaBars, FaChevronRight, FaChevronLeft, FaSun, FaMoon } from 'react-icons/fa6';
 
 type HeaderProps = {
     isDesktop: boolean;
@@ -13,6 +14,8 @@ export default function Header({
     onToggleCollapse,
     onOpenMobile,
 }: HeaderProps) {
+    const { theme, toggleTheme } = useTheme();
+
     return (
         <header className="header">
             <div className="header-left">
@@ -24,16 +27,22 @@ export default function Header({
                 <h1 className="header-title">Fight Club</h1>
             </div>
 
-            {isDesktop && (
-                <button
-                    className="icon-btn"
-                    onClick={onToggleCollapse}
-                    aria-pressed={isCollapsed}
-                    aria-label={isCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
-                >
-                    {isCollapsed ? <FaChevronRight /> : <FaChevronLeft />}
+            <div className="menu-actions">
+                {isDesktop && (
+                    <button
+                        className="icon-btn"
+                        onClick={onToggleCollapse}
+                        aria-pressed={isCollapsed}
+                        aria-label={isCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
+                    >
+                        {isCollapsed ? <FaChevronRight /> : <FaChevronLeft />}
+                    </button>
+                )}
+
+                <button className="icon-btn" onClick={toggleTheme}>
+                    {theme === 'dark' ? <FaSun /> : <FaMoon />}
                 </button>
-            )}
+            </div>
         </header>
     );
 }
