@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks';
+import { Typography } from '@/ui';
 import { FaBars, FaChevronRight, FaChevronLeft, FaSun, FaMoon } from 'react-icons/fa6';
 
 type HeaderProps = {
@@ -24,7 +25,7 @@ export default function Header({
                         <FaBars />
                     </button>
                 )}
-                <h1 className="header-title">Fight Club</h1>
+                <Typography.h1 className="header-title">Fight Club</Typography.h1>
             </div>
 
             <div className="menu-actions">

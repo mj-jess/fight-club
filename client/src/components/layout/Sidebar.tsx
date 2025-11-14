@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { MdDashboard } from 'react-icons/md';
 import { FaBuilding, FaX } from 'react-icons/fa6';
+import { Typography } from '@/ui';
 
 type SidebarProps = {
     isDesktop: boolean;
@@ -37,14 +38,14 @@ export default function Sidebar({
                     <span className="item-icon">
                         <MdDashboard />
                     </span>
-                    <span className="item-label">Dashboard</span>
+                    <Typography.h4 className="item-label">Dashboard</Typography.h4>
                 </NavLink>
 
                 <NavLink to="/organizations" className="nav-item">
                     <span className="item-icon">
                         <FaBuilding />
                     </span>
-                    <span className="item-label">Organizations</span>
+                    <Typography.h4 className="item-label">Organizations</Typography.h4>
                 </NavLink>
             </nav>
         </aside>
